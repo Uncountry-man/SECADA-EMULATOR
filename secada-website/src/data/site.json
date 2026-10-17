@@ -5,15 +5,15 @@
   "title": "SECADA Emulator — Android no Linux",
   "description": "Emulador Android para Linux: executa o Android 9 numa máquina virtual QEMU/KVM e mostra a tela numa janela nativa, com mouse, teclado e instalação de APK por duplo clique.",
   "lang": "pt-BR",
-  "siteUrl": null,
+  "siteUrl": "https://uncountry-man.github.io/SECADA-EMULATOR/",
   "links": {
-    "repository": null,
-    "issues": null,
+    "repository": "https://github.com/Uncountry-man/SECADA-EMULATOR",
+    "issues": "https://github.com/Uncountry-man/SECADA-EMULATOR/issues",
     "discussions": null,
     "discord": null,
     "contactEmail": null,
-    "license": null,
-    "licenseName": null
+    "license": "https://github.com/Uncountry-man/SECADA-EMULATOR/blob/main/LICENSE",
+    "licenseName": "MIT"
   },
   "donate": {
     "_ajuda": "Cada item de 'methods' vira um botão/linha na seção Apoie. Exemplo: { \"id\": \"pix\", \"label\": \"Pix\", \"type\": \"pix\", \"key\": \"SUA-CHAVE\", \"holder\": \"Nome do recebedor\" } ou { \"id\": \"github\", \"label\": \"GitHub Sponsors\", \"type\": \"link\", \"url\": \"https://github.com/sponsors/...\" }",

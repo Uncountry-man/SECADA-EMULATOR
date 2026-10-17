@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://uncountry-man.github.io/SECADA-EMULATOR/sitemap.xml

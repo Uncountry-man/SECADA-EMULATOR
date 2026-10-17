@@ -1,0 +1,41 @@
+# Publica o site (secada-website/) no GitHub Pages a cada push na main.
+name: Site no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'secada-website/**'
+      - 'THIRD_PARTY_NOTICES.md'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Gerar o site
+        working-directory: secada-website
+        run: node scripts/build.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: secada-website/dist
+      - id: deployment
+        uses: actions/deploy-pages@v4

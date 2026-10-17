@@ -76,7 +76,10 @@ export async function build() {
     await mkdir(dirname(join(out, name)), { recursive: true });
     await writeFile(join(out, name), html);
   }
-  await writeFile(join(out, '404.html'), layout({ site, release, root: '/', page: '404', title: `Página não encontrada — ${site.productName}`, description: site.description, body: `<div class="wrap" style="padding-block:120px"><h1>Página não encontrada</h1><p class="lead" style="margin-top:16px;color:var(--muted)">O endereço não existe. <a href="/">Voltar ao início</a>.</p></div>` }));
+  // A 404 é servida em qualquer profundidade, então usa caminhos absolutos a partir da raiz do site
+  // (no GitHub Pages de projeto, /SECADA-EMULATOR/).
+  const absRoot = site.siteUrl ? new URL(site.siteUrl.replace(/\/?$/, '/')).pathname : '/';
+  await writeFile(join(out, '404.html'), layout({ site, release, root: absRoot, page: '404', title: `Página não encontrada — ${site.productName}`, description: site.description, body: `<div class="wrap" style="padding-block:120px"><h1>Página não encontrada</h1><p class="lead" style="margin-top:16px;color:var(--muted)">O endereço não existe. <a href="${absRoot}">Voltar ao início</a>.</p></div>` }));
 
   if (site.siteUrl) {
     const base = site.siteUrl.replace(/\/?$/, '/');

@@ -1,0 +1,13 @@
+{
+  "items": [
+    { "q": "O que é o SECADA?", "a": "Um emulador Android para Linux. Ele executa o Android 9 (Android-x86) numa máquina virtual QEMU com KVM e mostra a tela dentro de uma janela desktop própria, com mouse, teclado e instalação de APK." },
+    { "q": "Em quais distribuições Linux ele funciona?", "a": "Foi testado no Linux Mint 22.3, que usa a base do Ubuntu 24.04, em x86-64. O pacote .deb e o pacote portátil foram feitos para esse ambiente. Outras distribuições ainda não foram testadas; o que se sabe é que o .tar.gz não exige root." },
+    { "q": "Como instalar o SECADA?", "a": "Baixe o pacote, instale (./install.sh no portátil, ou sudo apt install ./arquivo.deb) e rode o script que baixa a imagem do Android, que tem 921 MB e é verificada por MD5. Os passos completos estão na seção Instalação e na documentação." },
+    { "q": "Como instalar arquivos APK?", "a": "Dê dois cliques no .apk ou .xapk no gerenciador de arquivos, arraste o arquivo para a janela ou use o botão de instalar na barra lateral. O app só precisa ser compatível com Android 9 e ter versão x86-64 ou ARM de 32 bits." },
+    { "q": "Quais são os requisitos de hardware?", "a": "Processador x86-64 com virtualização (KVM) ativa, GPU com Mesa ou driver NVIDIA recente (ou software, mais lento), 4 GB de RAM para a VM por padrão e cerca de 1 GB para o pacote mais a imagem. O mínimo oficial do computador ainda não foi definido." },
+    { "q": "O projeto é gratuito?", "a": "Sim. Baixar e usar o SECADA não exige pagamento nem cadastro. A licença do código ainda não foi publicada." },
+    { "q": "Como reportar bugs?", "a": "O canal público de bugs ainda não foi configurado. Enquanto isso, guarde os registros de ~/.local/share/secada/logs/ (secada.log, qemu.log e android-serial.log): eles trazem o motivo da maioria das falhas." },
+    { "q": "Como apoiar o desenvolvimento?", "a": "Pela seção Apoie o projeto. Doar é opcional e nada no SECADA depende disso." },
+    { "q": "Por que o app não abre ou fecha sozinho?", "a": "Verifique se o seu usuário está no grupo kvm, se a virtualização está ligada na BIOS e se o app não exige Android 10 ou superior. Apps só ARM de 64 bits e apps que exigem Google Play Services não funcionam." }
+  ]
+}

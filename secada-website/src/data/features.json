@@ -1,0 +1,139 @@
+{
+  "implemented": [
+    {
+      "id": "janela",
+      "title": "Android 9 numa janela do Linux",
+      "text": "Android-x86 9.0 (x86-64) roda numa VM QEMU acelerada por KVM. A tela aparece numa janela GTK/Flutter própria, com proporção mantida, redimensionamento, maximizar e tela cheia (F11).",
+      "evidence": "README, seção Arquitetura e Funcionalidades testadas",
+      "icon": "window"
+    },
+    {
+      "id": "gpu",
+      "title": "GPU do computador",
+      "text": "O Android usa OpenGL ES pela GPU do host (VirGL). O display D-Bus do QEMU entrega os quadros direto da GPU: 60 quadros/s medidos, contra ~26 pelo caminho VNC. Sem GPU utilizável, cai sozinho para renderização por software e avisa o motivo.",
+      "evidence": "docs/DECISOES.md, medições no Ryzen 7 5700U",
+      "icon": "gauge"
+    },
+    {
+      "id": "apk",
+      "title": "Instalação de APK e XAPK",
+      "text": "Dois cliques num .apk ou .xapk no gerenciador de arquivos, arrastar para a janela ou usar o seletor. XAPK com várias partes e arquivos OBB são aceitos. .apks e .apkm não são suportados.",
+      "evidence": "README, seção Abrir .apk e .xapk com dois cliques",
+      "icon": "box"
+    },
+    {
+      "id": "apps",
+      "title": "Gerenciamento de aplicativos",
+      "text": "Lista os apps instalados, abre e desinstala pela barra lateral. Vêm instalados o Firefox (Fennec F-Droid) e o Fossify Notes. Apps e dados persistem entre sessões.",
+      "evidence": "README, Barra lateral e Integração com o Android",
+      "icon": "list"
+    },
+    {
+      "id": "entrada",
+      "title": "Mouse e teclado",
+      "text": "Clique, arrastar, botão direito e roda funcionam como em qualquer janela. Esc vale como Voltar e é configurável. Voltar, Início e Recentes ficam na barra lateral.",
+      "evidence": "README, seção Exibição e entrada",
+      "icon": "mouse"
+    },
+    {
+      "id": "mapeador",
+      "title": "Mapeador de teclas para jogos",
+      "text": "Transforma teclado e mouse em toques: direcional WASD, toque, deslizar, mira com o mouse e multitoque. Há perfis iniciais por jogo e gênero, editor visual e perfis salvos. As posições dos perfis são pontos de partida, ainda não validadas dentro de cada jogo.",
+      "evidence": "README, seção Mapeador de teclas",
+      "icon": "gamepad"
+    },
+    {
+      "id": "arm",
+      "title": "Tradução ARM 32 bits",
+      "text": "Roda apps feitos só para celulares ARM de 32 bits pelo libhoudini, baixado do espelho do Android-x86 na primeira vez que a opção é usada. Tem custo de desempenho e alguns apps com proteção anti-emulador podem não abrir.",
+      "evidence": "README, Integração com o Android e Limitações",
+      "icon": "chip"
+    },
+    {
+      "id": "config",
+      "title": "Recursos, resolução e armazenamento configuráveis",
+      "text": "vCPUs, RAM, resolução, DPI e tamanho do disco são ajustados em Configurações e validados contra o hardware antes de iniciar. As alterações valem na próxima inicialização.",
+      "evidence": "README, tabela de Configurações",
+      "icon": "sliders"
+    },
+    {
+      "id": "desktop",
+      "title": "Integração com o desktop",
+      "text": "Registra-se como programa padrão para .apk/.xapk (padrão freedesktop.org), mantém uma única instância aberta, espelha a bateria do computador, aplica idioma e fuso horário e liga o áudio ao PulseAudio/PipeWire.",
+      "evidence": "README, Abrir .apk e .xapk e Integração com o Android",
+      "icon": "desktop"
+    },
+    {
+      "id": "enxuto",
+      "title": "Android enxuto (opcional)",
+      "text": "Remove Google apps, telemetria e cerca de 50 pacotes: de 100 para 50 pacotes, com cerca de 380 MB de RAM a mais livre no Android. Vem desligado e é reversível.",
+      "evidence": "README, Android enxuto",
+      "icon": "leaf"
+    }
+  ],
+  "planned": [
+    {
+      "title": "Layout do teclado do computador refletido no Android",
+      "text": "Hoje o convidado usa layout en-us: ç e acentos não são digitados pelo teclado físico."
+    },
+    {
+      "title": "Área de transferência compartilhada e microfone",
+      "text": "Ainda não existem."
+    },
+    {
+      "title": "Desempenho gráfico",
+      "text": "Importar o quadro direto na textura do Flutter e avaliar Venus/Vulkan e Android 11–13."
+    },
+    {
+      "title": "Tradução ARM 64 bits distribuível",
+      "text": "O SECADA já a ativa quando o tradutor está no computador, mas ainda não há fonte pública para ele."
+    },
+    {
+      "title": "Várias instâncias e snapshots",
+      "text": "Hoje existe uma única VM."
+    },
+    {
+      "title": "Rotação real",
+      "text": "Acompanhar a orientação pedida pelo app, em vez de trocar a geometria lógica."
+    }
+  ],
+  "limits": [
+    "Android 9 (API 28): apps que exigem Android 10 ou superior não instalam.",
+    "Sem câmera, sensores ou GPS.",
+    "Sem Google Play nem Play Services: apps que dependem deles não rodam.",
+    "Apps só ARM 64 bits são recusados; ARM 32 bits rodam pela tradução, com custo de desempenho.",
+    "A mira com o mouse no mapeador precisa de X11; em Wayland a câmera para na borda da janela."
+  ],
+  "highlights": [
+    {
+      "title": "Android em janela",
+      "text": "Android 9 em VM com KVM e GPU do computador, em tela cheia ou redimensionável.",
+      "icon": "window"
+    },
+    {
+      "title": "APK com dois cliques",
+      "text": "Instale APK e XAPK pelo gerenciador de arquivos ou arrastando para a janela.",
+      "icon": "box"
+    },
+    {
+      "title": "Mouse e teclado",
+      "text": "Funcionam como em qualquer programa. Esc volta, F11 abre a tela cheia.",
+      "icon": "mouse"
+    },
+    {
+      "title": "Mapeador de teclas",
+      "text": "Transforme teclado e mouse em toques para jogar, com perfis e editor visual.",
+      "icon": "gamepad"
+    },
+    {
+      "title": "Apps ARM de 32 bits",
+      "text": "Uma tradução opcional roda apps feitos só para celulares ARM.",
+      "icon": "chip"
+    },
+    {
+      "title": "Integrado ao desktop",
+      "text": "Abre .apk e .xapk, mostra a bateria e usa o idioma e o áudio do computador.",
+      "icon": "desktop"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "_ajuda": "Links e informações que mudam com frequência. Valores null aparecem no site como 'ainda não configurado' — nada é inventado. Veja o README.",
+  "name": "SECADA",
+  "productName": "SECADA Emulator",
+  "title": "SECADA Emulator — Android no Linux",
+  "description": "Emulador Android para Linux: executa o Android 9 numa máquina virtual QEMU/KVM e mostra a tela numa janela nativa, com mouse, teclado e instalação de APK por duplo clique.",
+  "lang": "pt-BR",
+  "siteUrl": null,
+  "links": {
+    "repository": null,
+    "issues": null,
+    "discussions": null,
+    "discord": null,
+    "contactEmail": null,
+    "license": null,
+    "licenseName": null
+  },
+  "donate": {
+    "_ajuda": "Cada item de 'methods' vira um botão/linha na seção Apoie. Exemplo: { \"id\": \"pix\", \"label\": \"Pix\", \"type\": \"pix\", \"key\": \"SUA-CHAVE\", \"holder\": \"Nome do recebedor\" } ou { \"id\": \"github\", \"label\": \"GitHub Sponsors\", \"type\": \"link\", \"url\": \"https://github.com/sponsors/...\" }",
+    "methods": []
+  }
+}

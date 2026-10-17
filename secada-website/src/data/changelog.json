@@ -1,0 +1,18 @@
+{
+  "_ajuda": "Uma entrada por versão, da mais nova para a mais antiga. Campos de lista: added, changed, fixed (todos opcionais). Edite este arquivo e rode 'npm run build'.",
+  "entries": [
+    {
+      "version": "0.1.0",
+      "date": "2026-10-15",
+      "title": "Primeira versão distribuível",
+      "added": [
+        "Android-x86 9.0 em VM QEMU/KVM, exibido numa janela nativa com GPU (VirGL) e display D-Bus a 60 quadros/s.",
+        "Instalação de APK e XAPK por duplo clique, arrastar e soltar ou seletor de arquivos, com fila e progresso.",
+        "Mapeador de teclas com perfis por jogo e editor visual.",
+        "Tradução ARM 32 bits sob demanda.",
+        "Modo Android enxuto, opcional.",
+        "Pacotes .tar.gz portátil (instalação sem root) e .deb, com QEMU e ADB incluídos."
+      ]
+    }
+  ]
+}

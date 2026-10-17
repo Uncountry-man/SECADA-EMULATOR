@@ -1,0 +1,41 @@
+{
+  "_ajuda": "Gerado em parte por 'npm run sync-release' (version, date, assets). Edite à mão: channel, notes, previous, androidImage.",
+  "version": "0.1.0",
+  "date": "2026-10-15",
+  "channel": "beta",
+  "channelNote": "Versão inicial. Funciona, mas tem limitações conhecidas e foi testada em um único ambiente.",
+  "assets": [
+    {
+      "kind": "tar.gz",
+      "label": "Pacote portátil",
+      "format": "tar.gz",
+      "arch": "x86-64",
+      "recommended": true,
+      "audience": "Qualquer distribuição compatível. Instala na sua pasta pessoal, sem root.",
+      "id": "tar",
+      "file": "secada-0.1.0-linux-x86_64.tar.gz",
+      "url": "downloads/secada-0.1.0-linux-x86_64.tar.gz",
+      "sizeBytes": 145706564,
+      "sha256": "771012e04b32571de1bb6e6108e3f4b53820ad0eef08e4c5dc845e6fab2af537"
+    },
+    {
+      "kind": "deb",
+      "label": "Pacote Debian",
+      "format": "deb",
+      "arch": "amd64",
+      "audience": "Debian, Ubuntu e derivados (testado no Linux Mint 22.3). Instala em /opt/secada.",
+      "id": "deb",
+      "file": "secada_0.1.0_amd64.deb",
+      "url": "downloads/secada_0.1.0_amd64.deb",
+      "sizeBytes": 138136162,
+      "sha256": "21102971b7067986d80546807b52327faf70a6b723ac5a57fe33353f1a7c1a47"
+    }
+  ],
+  "previous": [],
+  "androidImage": {
+    "name": "Android-x86 9.0-r2 (64 bits)",
+    "size": "921 MB",
+    "md5": "e9ba997cede7bf3514d2ba3e624ff767",
+    "note": "Não vem no pacote. Um script baixa a imagem do projeto Android-x86 e confere o MD5."
+  }
+}

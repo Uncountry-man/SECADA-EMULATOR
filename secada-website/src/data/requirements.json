@@ -1,0 +1,15 @@
+{
+  "_ajuda": "status: 'testado' = verificado no projeto; 'definido' = vem do código; 'a-definir' = ainda sem informação confirmada (aparece como pendente).",
+  "rows": [
+    { "label": "Arquitetura", "value": "x86-64 (amd64)", "status": "definido" },
+    { "label": "Sistema", "value": "Linux com GTK 3. Testado no Linux Mint 22.3 (base Ubuntu 24.04), kernel 7.0", "status": "testado" },
+    { "label": "Outras distribuições", "value": "Ainda não testadas. O pacote portátil traz QEMU e ADB próprios, compilados para Ubuntu 24.04", "status": "a-definir" },
+    { "label": "Virtualização", "value": "KVM ativo na BIOS e acesso a /dev/kvm (grupo kvm)", "status": "definido" },
+    { "label": "GPU", "value": "Qualquer GPU com /dev/dri e Mesa; NVIDIA proprietário exige driver 495+ com nvidia-drm.modeset=1. Sem GPU utilizável, roda por software", "status": "definido" },
+    { "label": "Memória", "value": "A VM usa 4 GB por padrão (mínimo configurável: 2 GB). Mínimo do computador ainda não definido; testado com 16 GB", "status": "a-definir" },
+    { "label": "Armazenamento", "value": "Pacote ~140 MB, imagem Android 921 MB e disco do Android de até 32 GB (esparso, ocupa só o usado)", "status": "definido" },
+    { "label": "Dependências", "value": "GTK 3 e e2fsprogs. Com o pacote portátil ou o .deb, QEMU e ADB já vêm incluídos", "status": "definido" },
+    { "label": "Áudio", "value": "PulseAudio ou PipeWire no computador", "status": "definido" },
+    { "label": "Internet", "value": "Necessária uma vez, para baixar a imagem Android (921 MB) e, se usar a tradução ARM, o libhoudini (~43 MB)", "status": "definido" }
+  ]
+}

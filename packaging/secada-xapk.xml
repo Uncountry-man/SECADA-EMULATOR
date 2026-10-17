@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-xapk">
+    <comment>Android application package with extra data (XAPK)</comment>
+    <comment xml:lang="pt_BR">Pacote de aplicativo Android com dados extras (XAPK)</comment>
+    <sub-class-of type="application/zip"/>
+    <glob pattern="*.xapk"/>
+  </mime-type>
+</mime-info>

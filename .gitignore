@@ -1,0 +1,15 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+*.iml
+.idea/
+
+# Linux (gerados pelo Flutter)
+app/linux/flutter/ephemeral/
+
+# Pacotes de release (.deb, .tar.gz, APKs): grandes demais para o Git
+/dist/
+secada-website/dist/downloads/

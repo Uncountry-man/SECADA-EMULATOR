@@ -43,3 +43,7 @@ export function vars(str, release) {
     .replaceAll('{{tarDir}}', `secada-${release.version}-linux-x86_64`)
     .replaceAll('{{deb}}', deb?.file ?? `secada_${release.version}_amd64.deb`);
 }
+
+// "System for Efficient ..." com as iniciais da sigla (palavras com maiúscula) destacadas.
+export const acronym = (text) =>
+  text.split(' ').map((w) => (/^[A-Z]/.test(w) ? `<b class="acr">${esc(w[0])}</b>${esc(w.slice(1))}` : esc(w))).join(' ');

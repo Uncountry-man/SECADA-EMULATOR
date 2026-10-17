@@ -1,4 +1,4 @@
-import { esc, fmtSize, fmtDate, icon, primaryAsset } from '../lib.mjs';
+import { esc, fmtSize, fmtDate, icon, primaryAsset, acronym } from '../lib.mjs';
 
 // Página inicial enxuta: apresentar, mostrar, baixar. O resto vive na documentação.
 export function home({ site, release, features }) {
@@ -12,6 +12,7 @@ export function home({ site, release, features }) {
   <img class="hero-art" src="img/keyart-claro.webp" alt="" width="1920" height="1080" aria-hidden="true">
   <div class="wrap hero-grid">
     <div class="hero-copy">
+      ${site.acronym ? `<p class="acronym"><abbr title="${esc(site.acronym)}">SECADA</abbr> = ${acronym(site.acronym)}</p>` : ''}
       <h1 id="h-hero">Android numa janela do seu Linux.</h1>
       <p class="lead">Roda o Android 9 em uma máquina virtual e mostra a tela numa janela nativa. Mouse, teclado e APK com dois cliques.</p>
       <div class="hero-actions">

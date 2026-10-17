@@ -18,5 +18,6 @@
   "donate": {
     "_ajuda": "Cada item de 'methods' vira um botão/linha na seção Apoie. Exemplo: { \"id\": \"pix\", \"label\": \"Pix\", \"type\": \"pix\", \"key\": \"SUA-CHAVE\", \"holder\": \"Nome do recebedor\" } ou { \"id\": \"github\", \"label\": \"GitHub Sponsors\", \"type\": \"link\", \"url\": \"https://github.com/sponsors/...\" }",
     "methods": []
-  }
+  },
+  "acronym": "System for Efficient Compatibility of Android Desktop Applications"
 }

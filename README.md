@@ -1,5 +1,8 @@
 # SECADA Emulator — emulador Android nativo para Linux
 
+> **SECADA é uma sigla:** **S**ystem for **E**fficient **C**ompatibility of **A**ndroid **D**esktop **A**pplications
+> (em português, algo como "Sistema para Compatibilidade Eficiente de Aplicativos Android no Desktop").
+
 O SECADA Emulator executa um **Android real (Android-x86 9.0, AOSP, x86-64)** numa máquina
 virtual **QEMU acelerada por KVM** e mostra a tela do Android dentro de uma
 janela desktop nativa feita em **Flutter (Material 3)**, com mouse, teclado,

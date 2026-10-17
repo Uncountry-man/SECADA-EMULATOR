@@ -100,7 +100,7 @@ function footer({ site, release, root }) {
         <a href="${root}terceiros/">Componentes de terceiros</a>
       </nav>
     </div>
-    <p class="legal">${esc(site.productName)} ${esc(release.version)}${l.license ? ` · <a href="${esc(l.license)}">${esc(l.licenseName ?? 'Licença')}</a>` : ''} · Android é marca da Google LLC. O SECADA não é afiliado à Google.</p>
+    <p class="legal">${site.acronym ? `SECADA: ${esc(site.acronym)}<br>` : ''}${esc(site.productName)} ${esc(release.version)}${l.license ? ` · <a href="${esc(l.license)}">${esc(l.licenseName ?? 'Licença')}</a>` : ''} · Android é marca da Google LLC. O SECADA não é afiliado à Google.</p>
   </div>
 </footer>`;
 }

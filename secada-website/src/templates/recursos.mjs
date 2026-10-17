@@ -1,10 +1,16 @@
-import { esc, icon } from '../lib.mjs';
+import { esc, icon, acronym } from '../lib.mjs';
 import { pageHead } from './common.mjs';
 
-export function recursos({ features }) {
+export function recursos({ site, features }) {
   return `
 ${pageHead('Recursos', 'Tudo o que está nesta lista foi implementado e testado com o aplicativo real. O que ainda não existe aparece separado, mais abaixo.')}
-<section class="section tight" aria-labelledby="h-impl">
+${site.acronym ? `<section class="section tight" aria-labelledby="h-nome">
+  <div class="wrap two">
+    <div><h2 id="h-nome">O nome</h2><p class="aside">SECADA é uma sigla.</p></div>
+    <p class="acronym acronym-lg">${acronym(site.acronym)}</p>
+  </div>
+</section>
+` : ''}<section class="section tight" aria-labelledby="h-impl">
   <div class="wrap">
     <h2 id="h-impl" class="sr-only">Disponível hoje</h2>
     <ul class="feature-grid cols-2">

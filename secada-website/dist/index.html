@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SECADA Emulator — Android no Linux</title>
+<meta name="description" content="Emulador Android para Linux: executa o Android 9 numa máquina virtual QEMU/KVM e mostra a tela numa janela nativa, com mouse, teclado e instalação de APK por duplo clique.">
+<meta name="theme-color" content="#f6f7f8">
+
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SECADA Emulator">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="SECADA Emulator — Android no Linux">
+<meta property="og:description" content="Emulador Android para Linux: executa o Android 9 numa máquina virtual QEMU/KVM e mostra a tela numa janela nativa, com mouse, teclado e instalação de APK por duplo clique.">
+<meta property="og:image" content="img/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/sora-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SECADA Emulator","applicationCategory":"UtilitiesApplication","operatingSystem":"Linux (x86-64)","softwareVersion":"0.1.0","description":"Emulador Android para Linux: executa o Android 9 numa máquina virtual QEMU/KVM e mostra a tela numa janela nativa, com mouse, teclado e instalação de APK por duplo clique.","inLanguage":"pt-BR","fileSize":"139 MB"}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19.5h14"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></symbol>
+<symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></symbol>
+<symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v4"/></symbol>
+<symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6.5 8h11a4.5 4.5 0 0 1 4.4 5.4l-.6 2.8a2.4 2.4 0 0 1-4.2 1L15.5 15h-7l-1.6 2.2a2.4 2.4 0 0 1-4.2-1l-.6-2.8A4.5 4.5 0 0 1 6.5 8z"/><path d="M8 10.5v3M6.5 12h3M16 11h.01M18 13h.01"/></symbol>
+<symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
+<symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5M4 16h2M18 16h2"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19l8-8"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="SECADA Emulator — início"><img src="img/secada-logo-escuro.svg" alt="SECADA" width="72" height="36"></a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu"><svg class="icon i-open" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg><svg class="icon i-close" aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="recursos/">Recursos</a>
+      <a href="downloads/">Downloads</a>
+      <a href="docs/">Documentação</a>
+      <a href="apoie/">Apoie o projeto</a>
+      <a class="btn btn-primary btn-sm" href="downloads/secada-0.1.0-linux-x86_64.tar.gz" download><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Baixar</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero" aria-labelledby="h-hero">
+  <img class="hero-art" src="img/keyart-claro.webp" alt="" width="1920" height="1080" aria-hidden="true">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="h-hero">Android numa janela do seu Linux.</h1>
+      <p class="lead">Roda o Android 9 em uma máquina virtual e mostra a tela numa janela nativa. Mouse, teclado e APK com dois cliques.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="downloads/secada-0.1.0-linux-x86_64.tar.gz" download><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Baixar SECADA</a>
+        <a class="link-arrow" href="recursos/">Conhecer o projeto</a>
+      </div>
+      <p class="hero-meta">0.1.0 beta · Linux x86-64 · 139 MB</p>
+    </div>
+    <figure class="shot">
+      <img src="img/app-android.webp" srcset="img/app-android-668.webp 668w, img/app-android.webp 1336w" sizes="(max-width: 960px) 100vw, 60vw" width="1336" height="760" alt="Janela do SECADA mostrando a tela inicial do Android 9" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="recursos" aria-labelledby="h-rec">
+  <div class="wrap">
+    <h2 id="h-rec">Recursos</h2>
+    <ul class="feature-grid">
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-window"/></svg><h3>Android em janela</h3><p>Android 9 em VM com KVM e GPU do computador, em tela cheia ou redimensionável.</p></li>
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-box"/></svg><h3>APK com dois cliques</h3><p>Instale APK e XAPK pelo gerenciador de arquivos ou arrastando para a janela.</p></li>
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-mouse"/></svg><h3>Mouse e teclado</h3><p>Funcionam como em qualquer programa. Esc volta, F11 abre a tela cheia.</p></li>
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-gamepad"/></svg><h3>Mapeador de teclas</h3><p>Transforme teclado e mouse em toques para jogar, com perfis e editor visual.</p></li>
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-chip"/></svg><h3>Apps ARM de 32 bits</h3><p>Uma tradução opcional roda apps feitos só para celulares ARM.</p></li>
+      <li><svg class="icon feat-icon" aria-hidden="true" focusable="false"><use href="#i-desktop"/></svg><h3>Integrado ao desktop</h3><p>Abre .apk e .xapk, mostra a bateria e usa o idioma e o áudio do computador.</p></li>
+    </ul>
+    <p class="aside">O SECADA roda Android 9, sem câmera, sensores nem Google Play. <a href="recursos/#limites">Ver limitações</a> e <a href="recursos/#planejado">o que vem a seguir</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="downloads" aria-labelledby="h-dl">
+  <div class="wrap"><div class="dl">
+    <div>
+      <h2 id="h-dl">Baixar</h2>
+      <p class="dl-version">Versão 0.1.0 <span class="badge">Beta</span> · 15 de outubro de 2026</p>
+      <div class="notice" id="platform-warning" hidden><b>Atenção:</b> <span id="platform-msg"></span> O SECADA só funciona em Linux com processador x86-64.</div>
+    </div>
+    <div>
+      <a class="btn btn-primary btn-lg" href="downloads/secada-0.1.0-linux-x86_64.tar.gz" download><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Baixar para Linux <small>.tar.gz · 139 MB</small></a>
+      <p class="dl-alt"><a href="downloads/secada_0.1.0_amd64.deb" download>Pacote Debian (.deb, 132 MB)</a></p>
+      <p class="dl-note">Na primeira abertura, o SECADA baixa a imagem do Android (921 MB). Veja <a href="downloads/">todas as opções e a instalação</a>.</p>
+      <details class="verify">
+        <summary>Verificar integridade (SHA-256)</summary>
+        <dl>
+          <dt>secada-0.1.0-linux-x86_64.tar.gz</dt><dd><code>771012e04b32571de1bb6e6108e3f4b53820ad0eef08e4c5dc845e6fab2af537</code><button class="copy" type="button" data-copy="771012e04b32571de1bb6e6108e3f4b53820ad0eef08e4c5dc845e6fab2af537" aria-label="Copiar SHA-256 de secada-0.1.0-linux-x86_64.tar.gz"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="copy-label">Copiar</span></button></dd>
+          <dt>secada_0.1.0_amd64.deb</dt><dd><code>21102971b7067986d80546807b52327faf70a6b723ac5a57fe33353f1a7c1a47</code><button class="copy" type="button" data-copy="21102971b7067986d80546807b52327faf70a6b723ac5a57fe33353f1a7c1a47" aria-label="Copiar SHA-256 de secada_0.1.0_amd64.deb"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-copy"/></svg><span class="copy-label">Copiar</span></button></dd>
+        </dl>
+      </details>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="apoie" aria-labelledby="h-apoie">
+  <div class="wrap"><div class="dl">
+    <div><h2 id="h-apoie">Apoie o projeto</h2></div>
+    <div>
+      <p class="lead">O SECADA é gratuito. Se ele for útil para você, uma contribuição ajuda a manter o desenvolvimento. É opcional.</p>
+      <p class="dl-alt" style="margin-top:24px"><a class="btn btn-ghost" href="apoie/">Como apoiar</a></p>
+    </div>
+  </div></div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-row">
+      <img src="img/secada-logo-escuro.svg" alt="SECADA" width="68" height="34">
+      <nav aria-label="Rodapé">
+        <a href="recursos/">Recursos</a>
+        <a href="downloads/">Downloads</a>
+        <a href="docs/">Documentação</a>
+        <a href="novidades/">Novidades</a>
+        <a href="faq/">Perguntas frequentes</a>
+        <a href="apoie/">Apoie o projeto</a>
+        
+        
+        
+        
+        <a href="privacidade/">Privacidade</a>
+        <a href="terceiros/">Componentes de terceiros</a>
+      </nav>
+    </div>
+    <p class="legal">SECADA Emulator 0.1.0 · Android é marca da Google LLC. O SECADA não é afiliado à Google.</p>
+  </div>
+</footer>
+<div id="live" class="sr-only" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></div>
+<script src="js/site.js" defer></script>
+</body>
+</html>

@@ -12,4 +12,5 @@ app/linux/flutter/ephemeral/
 
 # Pacotes de release (.deb, .tar.gz, APKs): grandes demais para o Git
 /dist/
-secada-website/dist/downloads/
+secada-website/dist/downloads/*.deb
+secada-website/dist/downloads/*.tar.gz

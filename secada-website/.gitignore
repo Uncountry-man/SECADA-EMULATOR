@@ -1,3 +1,5 @@
-dist/
 public/downloads/
 node_modules/
+# Pacotes de release: grandes demais para o Git (use GitHub Releases)
+dist/downloads/*.deb
+dist/downloads/*.tar.gz

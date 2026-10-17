@@ -8,6 +8,16 @@ instalação de APKs e configurações persistentes.
 Não é um protótipo visual: o Android roda de fato, a imagem vem do framebuffer
 da VM e os eventos de entrada vão para dispositivos virtuais da VM.
 
+> **Sobre o projeto**
+>
+> * **Exclusivo para Linux.** O SECADA Emulator é feito só para Linux (x86-64 com KVM).
+>   Não há planos de versões para Windows ou macOS.
+> * **Inspirado no LDPlayer e no BlueStacks.** A ideia é trazer para o Linux a
+>   experiência desses emuladores, com foco em apps e jogos. O SECADA não é afiliado
+>   a eles e não usa código deles.
+> * **Feito com IA.** O código foi escrito com a ajuda de inteligência artificial.
+> * **Aberto a contribuições, inclusive de quem usa IA.** Veja [Como contribuir](#como-contribuir).
+
 ---
 
 ## Arquitetura
@@ -514,3 +524,23 @@ Arquivos em tempo de execução: configurações em `~/.config/secada/`, dados e
 `~/.local/share/secada/` (`images/`, `vms/default/`, `logs/secada.log`,
 `logs/qemu.log`, `logs/android-serial.log`), sockets em
 `$XDG_RUNTIME_DIR/secada/default/`.
+
+---
+
+## Como contribuir
+
+Toda contribuição é bem-vinda: código, correções, testes, documentação, tradução,
+design, ícones, relatos de bugs, sugestões e testes em outras distribuições Linux
+e outras GPUs.
+
+Usar IA para contribuir é permitido e incentivado, assim como foi no próprio
+projeto. Só pedimos que você revise e teste o que enviar, como faria com qualquer
+código seu.
+
+Para contribuir:
+
+1. Abra uma *issue* descrevendo o bug ou a ideia, ou faça um *fork* do repositório.
+2. Crie um branch, faça a mudança e rode os testes (`cd app && flutter test`).
+3. Abra um *pull request* explicando o que mudou e como você testou.
+
+Lembre que o SECADA é só para Linux: mudanças para outros sistemas não serão aceitas.

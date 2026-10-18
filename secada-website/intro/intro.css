@@ -1,0 +1,52 @@
+/* Introdução do SECADA. Tokens de cor derivados do fundo do logotipo oficial (#030b27). */
+:root {
+  --ink: #01030a;
+  --navy: #030b27;
+  --navy-hi: #0a1738;
+  --accent: #3fd0bc; /* versão clara do --accent do site (#0f8b7c) para fundo escuro */
+}
+
+html, body { height: 100%; margin: 0; }
+body { background: var(--ink); overflow: hidden; }
+
+.intro { position: fixed; inset: 0; overflow: hidden; background: var(--ink); cursor: default; user-select: none; -webkit-user-select: none; }
+
+.bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 54%, var(--navy-hi) 0%, var(--navy) 38%, #020717 70%, var(--ink) 100%);
+  opacity: 0; will-change: opacity;
+}
+
+/* Luz atrás da marca: camada própria, só opacidade e escala mudam (o tamanho vem do intro.js). */
+.glow {
+  position: absolute; left: 50%; top: 50%; width: 1520px; height: 860px; margin: -430px 0 0 -760px;
+  background: radial-gradient(closest-side, rgba(29, 63, 120, .55), rgba(15, 36, 82, .28) 45%, rgba(3, 11, 39, 0));
+  opacity: 0; will-change: opacity, transform;
+}
+
+.fx, .stage { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.stage { overflow: visible; }
+
+.outline { fill: none; stroke: #f4f7ff; stroke-width: 1.3; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+
+/* Grão estático: dá textura ao escuro e evita faixas visíveis no degradê. */
+.grain {
+  position: absolute; inset: 0; pointer-events: none; opacity: .045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(140% 110% at 50% 50%, transparent 52%, rgba(0, 0, 0, .55) 100%); }
+
+/* Cortina da transição de saída (e do "pular"). */
+.veil { position: absolute; inset: 0; background: var(--ink); opacity: 0; pointer-events: none; }
+
+.replay {
+  position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+  width: 40px; height: 40px; display: grid; place-items: center; padding: 0;
+  color: #c9d3ea; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .12); border-radius: 50%;
+  cursor: pointer; opacity: 0; transition: opacity .6s ease, background-color .2s, color .2s;
+}
+.replay.show { opacity: .7; }
+.replay:hover, .replay:focus-visible { opacity: 1; color: #fff; background: rgba(255, 255, 255, .08); }
+.replay:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.replay[hidden] { display: none; }
